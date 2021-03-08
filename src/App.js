@@ -33,7 +33,7 @@ function App() {
                         </div>
 
                         <div className="answer">
-                            <p>Correct</p>
+                            <p>Correct!</p>
                             <button>Next Question</button>
                         </div>
                     </div>

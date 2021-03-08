@@ -46,11 +46,7 @@
   margin-top: 1rem;
 }
 
-.answer{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 /* Question Header */
 .question_header > *{
@@ -88,3 +84,21 @@
   padding: .5rem 1rem;
 }
 
+/* Answer Section */
+
+.answer{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.answer > p{
+  font-size: 30px;
+  font-weight: bold;
+  margin: 1rem;
+}
+
+.answer > button{
+  padding: 1rem 6rem;
+  font-size: 20px;
+}
