@@ -2,53 +2,93 @@ import "./App.css";
 
 import Rating from "./components/Rating";
 import Answers from "./components/Answers";
+import Progress from "./components/Progress";
+import QuestionProgress from "./components/QuestionProgress";
+
+import Questions from "./questions";
+import { useState } from "react";
 
 function App() {
+    const [currentPage, setCurrentPage] = useState(0);
+    const [correctAnswers, setCorrectAnswers] = useState(0);
+    const totalQuestions = Questions.length;
+
+    const [answerd, setAnswerd] = useState(false);
+    const [currentAnswerWasCorrect, setCurrentAnswerWasCorrect] = useState(
+        false
+    );
+    const [disalbeButton, setDisableButton] = useState(false);
+
+    const question = Questions[currentPage];
+
+    const getNextQuestion = () => {
+        if (currentPage < totalQuestions - 1) {
+            setCurrentPage(currentPage + 1);
+        }
+
+        setDisableButton(false);
+        setAnswerd(false);
+        setCurrentAnswerWasCorrect(false);
+    };
+
+    const handleAnswer = (studentAnswer) => {
+        if (question.correct_answer == studentAnswer) {
+            setCorrectAnswers(correctAnswers + 1);
+            setAnswerd(true);
+            setCurrentAnswerWasCorrect(true);
+        }
+
+        setAnswerd(true);
+        setDisableButton(true);
+    };
+
     return (
         <div className="App">
             <div className="container">
-                <div className="question_progress"></div>
+                <QuestionProgress
+                    currentPage={currentPage}
+                    totalQuestions={totalQuestions}
+                />
                 <div className="main_container">
                     <div className="question">
                         <div className="question_header">
-                            <h1>Question 16 of 20</h1>
-                            <p>Entertainment: Board Game</p>
+                            <h1>{`Question ${
+                                currentPage + 1
+                            } of ${totalQuestions}`}</h1>
+                            <p>{question.category}</p>
                             <div>
-                                <Rating />
+                                <Rating rate={question.difficulty} />
                             </div>
                         </div>
-                        <div className="question_body">
-                            At the start of a standard game of the Monopoly, if
-                            you throw a double six, which square would you land
-                            on?
-                        </div>
+                        <div className="question_body">{question.question}</div>
                         <div className="">
                             <Answers
-                                correct="Java"
-                                inCorrect={["Two", "Three", "Four"]}
-                                handleClick={(value) =>
-                                    console.log("button Click => ", value)
-                                }
+                                correct={question.correct_answer}
+                                inCorrect={question.incorrect_answers}
+                                handleClick={(value) => handleAnswer(value)}
+                                disalbeButton={disalbeButton}
                             />
                         </div>
 
-                        <div className="answer">
-                            <p>Correct!</p>
-                            <button>Next Question</button>
-                        </div>
+                        {answerd && (
+                            <div className="answer">
+                                <p>
+                                    {currentAnswerWasCorrect
+                                        ? "Correct!"
+                                        : "Sorry!"}
+                                </p>
+                                <button onClick={() => getNextQuestion()}>
+                                    Next Question
+                                </button>
+                            </div>
+                        )}
                     </div>
 
-                    <div className="score">
-                        <div className="score_numbers">
-                            <p>Score: 69%</p>
-                            <p>Max Score: 75%</p>
-                        </div>
-                        <div className="score_progress">
-                            <div className="result_1"></div>
-                            <div className="result_2"></div>
-                            <div className="result_3"></div>
-                        </div>
-                    </div>
+                    <Progress
+                        currentPage={currentPage + 1}
+                        correctAnswers={correctAnswers}
+                        totalQuestions={totalQuestions}
+                    />
                 </div>
             </div>
         </div>

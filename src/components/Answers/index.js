@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./index.css";
-function Answers({ correct, inCorrect, handleClick }) {
-    const [disabled, setDisabled] = useState(false);
+function Answers({ correct, inCorrect, handleClick, disalbeButton }) {
     const allAnswers = [correct, ...inCorrect];
 
     allAnswers.sort(); // alpabetical sorting could shuffle answers
 
     const choiceClick = (choosenAnswer) => {
-        setDisabled(true);
+        // setDisabled(true);
         handleClick(choosenAnswer);
     };
 
@@ -17,7 +16,7 @@ function Answers({ correct, inCorrect, handleClick }) {
                 <div key={index}>
                     <button
                         onClick={() => choiceClick(answer)}
-                        disabled={disabled}
+                        disabled={disalbeButton}
                     >
                         {answer}
                     </button>
