@@ -2,8 +2,7 @@
   width: 80%;
   height: 90vh;
   margin: 1rem auto;
-  border: 1px solid black;
-  
+  background-color: rgb(250, 248, 248);
 
   overflow: scroll;
 }
@@ -18,7 +17,6 @@
   width: 80%;
   height: 90%;
   margin: 1rem auto;
-  border: 1px solid black;
   overflow: scroll;
   padding: .5rem;
 
@@ -27,22 +25,17 @@
   justify-content: space-between;
 }
 
-.main_container > div{
-  border: 1px solid black;
-  overflow: scroll;
-}
+
 
 .main_container .question{
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 3px solid red;
-  overflow: scroll;
+  
 }
 
 .question > div{
-  /* border: 1px solid black; */
   margin-top: 1rem;
 }
 
@@ -101,4 +94,52 @@
 .answer > button{
   padding: 1rem 6rem;
   font-size: 20px;
+}
+
+/* SCORE SECTION */
+
+.score{
+  min-height: 3rem;
+  padding: 1rem 0px;
+}
+
+
+.score_numbers{
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 0px 1rem;
+}
+
+.score_numbers > p{
+  padding: 0px;
+  margin: 0px;
+}
+.score_progress{
+  height: 30px;
+  border-radius: 10px;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  border: 1px solid black;
+  display: flex;
+}
+
+.score_progress > p{
+  height: 100%;
+}
+
+.result_1{
+  width: 60%;
+  background-color: black;
+}
+
+.result_2{
+  width: 20%;
+  background-color: lightslategray;
+}
+
+.result_3{
+  width: 10%;
+  background-color: lightgray;
 }

@@ -1,5 +1,7 @@
 import "./App.css";
 
+import Rating from "./components/Rating";
+
 function App() {
     return (
         <div className="App">
@@ -10,7 +12,9 @@ function App() {
                         <div className="question_header">
                             <h1>Question 16 of 20</h1>
                             <p>Entertainment: Board Game</p>
-                            <div>Stars</div>
+                            <div>
+                                <Rating />
+                            </div>
                         </div>
                         <div className="question_body">
                             At the start of a standard game of the Monopoly, if
@@ -38,7 +42,17 @@ function App() {
                         </div>
                     </div>
 
-                    <div className="score"></div>
+                    <div className="score">
+                        <div className="score_numbers">
+                            <p>Score: 69%</p>
+                            <p>Max Score: 75%</p>
+                        </div>
+                        <div className="score_progress">
+                            <div className="result_1"></div>
+                            <div className="result_2"></div>
+                            <div className="result_3"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

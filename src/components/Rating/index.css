@@ -1,0 +1,8 @@
+.star_container{
+    display: flex;
+}
+
+.star_container .star{
+    width: 20px;
+    height: 20px;
+}
