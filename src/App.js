@@ -1,6 +1,7 @@
 import "./App.css";
 
 import Rating from "./components/Rating";
+import Answers from "./components/Answers";
 
 function App() {
     return (
@@ -21,19 +22,14 @@ function App() {
                             you throw a double six, which square would you land
                             on?
                         </div>
-                        <div className="question_choices">
-                            <div>
-                                <button>One</button>
-                            </div>
-                            <div>
-                                <button>Two</button>
-                            </div>
-                            <div>
-                                <button>Three</button>
-                            </div>
-                            <div>
-                                <button>Four</button>
-                            </div>
+                        <div className="">
+                            <Answers
+                                correct="Java"
+                                inCorrect={["Two", "Three", "Four"]}
+                                handleClick={(value) =>
+                                    console.log("button Click => ", value)
+                                }
+                            />
                         </div>
 
                         <div className="answer">

@@ -1,0 +1,16 @@
+.question_choices{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  .question_choices > div{
+    padding: .5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .question_choices > div > button{
+    width: 80%;
+    padding: .5rem 1rem;
+  }
