@@ -16,6 +16,7 @@ function App () {
   const [answerd, setAnswerd] = useState(false)
   const [currentAnswerWasCorrect, setCurrentAnswerWasCorrect] = useState(false)
   const [disalbeButton, setDisableButton] = useState(false)
+  const [gameOver, setGameOver] = useState(false)
 
   const question = Questions[currentPage]
 
@@ -30,10 +31,17 @@ function App () {
   }
 
   const handleAnswer = (studentAnswer) => {
+    if (gameOver) {
+      return
+    }
     if (question.correct_answer === studentAnswer) {
       setCorrectAnswers(correctAnswers + 1)
       setAnswerd(true)
       setCurrentAnswerWasCorrect(true)
+
+      if (currentPage === totalQuestions - 1) {
+        setGameOver(true)
+      }
     }
 
     setAnswerd(true)
