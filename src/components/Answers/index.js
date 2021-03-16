@@ -31,8 +31,10 @@ function Answers ({ correct, inCorrect, handleClick, disalbeButton }) {
       {allAnswers.map((answer, index) => (
         <div key={index}>
           <button
-            onClick={() => choiceClick(answer)}
-            disabled={disalbeButton}
+          /** When Answer is revealed it shoudn't send a click handler,
+           * since the question is already answerd */
+            onClick={() => disalbeButton || choiceClick(answer)}
+            disabled={disalbeButton && answer !== correct}
           >
             {answer}
           </button>
