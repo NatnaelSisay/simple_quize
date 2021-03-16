@@ -4,7 +4,7 @@ const questions = [
     type: 'multiple',
     difficulty: 'hard',
     question:
-            'What was the name of the hero in the 80s animated video game %27Dragon%27s Lair%27?',
+            'What was the name of the hero in the 80s animated video game \'Dragon\'s Lair\'?',
     correct_answer: 'Dirk the Daring',
     incorrect_answers: ['Arthur', 'Sir Toby Belch', 'Guy of Gisbourne']
   },
@@ -24,7 +24,7 @@ const questions = [
     category: 'Entertainment : Books',
     type: 'multiple',
     difficulty: 'hard',
-    question: 'What is Ron Weasley%27s middle name?',
+    question: 'What is Ron Weasley\'s middle name?',
     correct_answer: 'Bilius',
     incorrect_answers: ['Arthur', 'John', 'Dominic']
   },
@@ -33,7 +33,7 @@ const questions = [
     type: 'multiple',
     difficulty: 'easy',
     question:
-            'Who is the creator of the comic series %22The Walking Dead%22?',
+            'Who is the creator of the comic series "The Walking Dead"?',
     correct_answer: 'Robert Kirkman',
     incorrect_answers: [
       'Stan Lee',
@@ -114,7 +114,7 @@ const questions = [
     type: 'boolean',
     difficulty: 'medium',
     question:
-            'In the game %22Subnautica%22, a %22Cave Crawler%22 will attack you.',
+            'In the game "Subnautica", a "Cave Crawler" will attack you.',
     correct_answer: 'True',
     incorrect_answers: ['False']
   },
@@ -123,7 +123,7 @@ const questions = [
     type: 'multiple',
     difficulty: 'medium',
     question:
-            'What is the name of the device that allows for infinite energy in the anime %22Dimension W%22?',
+            'What is the name of the device that allows for infinite energy in the anime "Dimension W"?',
     correct_answer: 'Coils',
     incorrect_answers: ['Wires', 'Collectors', 'Tesla']
   },
@@ -132,7 +132,7 @@ const questions = [
     type: 'multiple',
     difficulty: 'medium',
     question:
-            'What is the name of Cream the Rabbit%27s mom in the %22Sonic the Hedgehog%22 series?',
+            'What is the name of Cream the Rabbit\'s mom in the "Sonic the Hedgehog" series?',
     correct_answer: 'Vanilla',
     incorrect_answers: ['Peach', 'Strawberry', 'Mint']
   },
@@ -154,7 +154,7 @@ const questions = [
     type: 'multiple',
     difficulty: 'hard',
     question:
-            'Which of these voices wasn%27t a choice for the House AI in %22The Simpsons Treehouse of Horror%22 short, House of Whacks?',
+            'Which of these voices wasn\'t a choice for the House AI in "The Simpsons Treehouse of Horror" short, House of Whacks?',
     correct_answer: 'George Clooney',
     incorrect_answers: ['Matthew Perry', 'Dennis Miller', 'Pierce Brosnan']
   },
@@ -163,7 +163,7 @@ const questions = [
     type: 'multiple',
     difficulty: 'medium',
     question:
-            'From which album is the Gorillaz song, %22On Melancholy Hill%22 featured in?',
+            'From which album is the Gorillaz song, "On Melancholy Hill" featured in?',
     correct_answer: 'Plastic Beach',
     incorrect_answers: ['Demon Days', 'Humanz', 'The Fall']
   },
