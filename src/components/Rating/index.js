@@ -1,6 +1,7 @@
 import React from 'react'
 
-import Star from '../../assets/star.png'
+import Star from '../../assets/black_start.png'
+import GrayStar from '../../assets/gray_star.png'
 import './index.css'
 
 const ratingValues = {
@@ -15,8 +16,12 @@ function Rating ({ rate = 'medium' }) {
 
   const stars = []
 
-  for (let i = 0; i < currentRating; i++) {
-    stars.push(<img src={Star} className='star' alt='star' />)
+  for (let i = 0; i < 5; i++) {
+    let starImage = Star
+    if (i >= currentRating) {
+      starImage = GrayStar
+    }
+    stars.push(<img src={starImage} className='star' alt='star' />)
   }
 
   return (
