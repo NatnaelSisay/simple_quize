@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from "react";
-import "./index.css";
-function Answers({ correct, inCorrect, handleClick, disalbeButton }) {
-    const allAnswers = [correct, ...inCorrect];
+import React from 'react'
+import './index.css'
 
-    allAnswers.sort(); // alpabetical sorting could shuffle answers
+function Answers ({ correct, inCorrect, handleClick, disalbeButton }) {
+  const allAnswers = [correct, ...inCorrect]
 
-    const choiceClick = (choosenAnswer) => {
-        // setDisabled(true);
-        handleClick(choosenAnswer);
-    };
+  allAnswers.sort() // alpabetical sorting could shuffle answers
 
-    return (
-        <div className="question_choices">
-            {allAnswers.map((answer, index) => (
-                <div key={index}>
-                    <button
-                        onClick={() => choiceClick(answer)}
-                        disabled={disalbeButton}
-                    >
-                        {answer}
-                    </button>
-                </div>
-            ))}
+  const choiceClick = (choosenAnswer) => {
+    // setDisabled(true)
+    handleClick(choosenAnswer)
+  }
+
+  return (
+    <div className='question_choices'>
+      {allAnswers.map((answer, index) => (
+        <div key={index}>
+          <button
+            onClick={() => choiceClick(answer)}
+            disabled={disalbeButton}
+          >
+            {answer}
+          </button>
         </div>
-    );
+      ))}
+    </div>
+  )
 }
 
-export default Answers;
+export default Answers
