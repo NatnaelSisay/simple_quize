@@ -1,4 +1,4 @@
-export default [
+const questions = [
   {
     category: 'Entertainment : Video Games',
     type: 'multiple',
@@ -195,3 +195,5 @@ export default [
     incorrect_answers: ['India', 'Australia', 'Ireland']
   }
 ]
+
+export default questions

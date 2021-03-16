@@ -1,12 +1,12 @@
 import './App.css'
 
+import { useState } from 'react'
 import Rating from './components/Rating'
 import Answers from './components/Answers'
 import Progress from './components/Progress'
 import QuestionProgress from './components/QuestionProgress'
 
 import Questions from './questions'
-import { useState } from 'react'
 
 function App () {
   const [currentPage, setCurrentPage] = useState(0)
@@ -14,10 +14,7 @@ function App () {
   const totalQuestions = Questions.length
 
   const [answerd, setAnswerd] = useState(false)
-  const [
-    currentAnswerWasCorrect,
-    setCurrentAnswerWasCorrect
-  ] = useState(false)
+  const [currentAnswerWasCorrect, setCurrentAnswerWasCorrect] = useState(false)
   const [disalbeButton, setDisableButton] = useState(false)
 
   const question = Questions[currentPage]
@@ -53,10 +50,7 @@ function App () {
         <div className='main_container'>
           <div className='question'>
             <div className='question_header'>
-              <h1>{`Question ${
-                currentPage + 1
-              } of ${totalQuestions}`}
-              </h1>
+              <h1>{`Question ${currentPage + 1} of ${totalQuestions}`}</h1>
               <p>{question.category}</p>
               <div>
                 <Rating rate={question.difficulty} />
@@ -75,9 +69,7 @@ function App () {
             {answerd && (
               <div className='answer'>
                 <p>{currentAnswerWasCorrect ? 'Correct!' : 'Sorry!'}</p>
-                <button onClick={() => getNextQuestion()}>
-                  Next Question
-                </button>
+                <button onClick={() => getNextQuestion()}>Next Question</button>
               </div>
             )}
           </div>
