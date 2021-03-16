@@ -2,7 +2,7 @@ import React from 'react'
 import './index.css'
 
 function Progress ({ currentPage = 0, correctAnswers = 0, totalQuestions = 0 }) {
-  const currentScore = Math.round((correctAnswers / currentPage) * 100)
+  const currentScore = currentPage && Math.round((correctAnswers / currentPage) * 100)
   const maxScore = Math.round(
     ((correctAnswers + (totalQuestions - currentPage)) / totalQuestions) *
             100

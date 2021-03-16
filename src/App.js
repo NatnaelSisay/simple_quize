@@ -75,7 +75,7 @@ function App () {
           </div>
 
           <Progress
-            currentPage={currentPage + 1}
+            currentPage={currentPage}
             correctAnswers={correctAnswers}
             totalQuestions={totalQuestions}
           />
