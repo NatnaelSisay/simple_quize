@@ -33,6 +33,7 @@ function Answers ({ correct, inCorrect, handleClick, disalbeButton }) {
           <button
           /** When Answer is revealed it shoudn't send a click handler,
            * since the question is already answerd */
+            className='answer_button'
             onClick={() => disalbeButton || choiceClick(answer)}
             disabled={disalbeButton && answer !== correct}
           >

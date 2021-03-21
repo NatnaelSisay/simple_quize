@@ -14,3 +14,7 @@
     width: 80%;
     padding: .5rem 1rem;
   }
+
+  .answer_button{
+    border-radius: 7px;
+  }
