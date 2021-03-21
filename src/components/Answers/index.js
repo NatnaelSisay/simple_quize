@@ -18,13 +18,15 @@ const randomizeAnswers = (answers) => {
   return randomAnswers
 }
 
-function Answers ({ correct, inCorrect, handleClick, disalbeButton }) {
+function Answers ({ correct, inCorrect, handleClick, disalbeButton, choosen }) {
   const allAnswers = randomizeAnswers([correct, ...inCorrect])
 
   const choiceClick = (choosenAnswer) => {
     // setDisabled(true)
     handleClick(choosenAnswer)
   }
+
+  console.log('Choosen after click => ', choosen)
 
   return (
     <div className='question_choices'>
@@ -33,8 +35,11 @@ function Answers ({ correct, inCorrect, handleClick, disalbeButton }) {
           <button
           /** When Answer is revealed it shoudn't send a click handler,
            * since the question is already answerd */
+            className={`answer_button ${(disalbeButton && answer !== correct) && 'answer_wrong'} 
+                                      ${(disalbeButton && answer === correct) && 'answer_correct'} 
+                                      ${(disalbeButton && answer === choosen) && 'answer_choosen'}`}
             onClick={() => disalbeButton || choiceClick(answer)}
-            disabled={disalbeButton && answer !== correct}
+            // disabled={disalbeButton && answer !== correct}
           >
             {answer}
           </button>

@@ -5,12 +5,15 @@ function Progress ({ currentPage = 0, correctAnswers = 0, totalQuestions = 0 }) 
   /** Reason for reducing test questions is b/c the currnetPage is always 1 lower
    * and we can't fully get the bars to overlap
    */
-  totalQuestions = totalQuestions - 1
+  // totalQuestions = totalQuestions - 1
   const currentScore = currentPage && Math.round((correctAnswers / currentPage) * 100)
-  const maxScore = Math.round(
+  let maxScore = Math.round(
     ((correctAnswers + (totalQuestions - currentPage)) / totalQuestions) *
             100
   )
+
+  // Maximum score should never exceed 100%
+  maxScore = maxScore > 100 ? 100 : maxScore
   const minScore = Math.round((correctAnswers / totalQuestions) * 100)
 
   // progress bar length
