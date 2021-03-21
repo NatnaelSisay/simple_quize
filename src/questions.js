@@ -80,11 +80,11 @@ const questions = [
     type: 'multiple',
     difficulty: 'medium',
     question: 'In 2013 how much money was lost by Nigerian scams?',
-    correct_answer: '%2412.7 Billion',
+    correct_answer: '2412.7 Billion',
     incorrect_answers: [
-      '%2495 Million',
-      '%24956 Million',
-      '%242.7 Billion'
+      '2495 Million',
+      '24956 Million',
+      '242.7 Billion'
     ]
   },
   {
@@ -119,7 +119,7 @@ const questions = [
     incorrect_answers: ['False']
   },
   {
-    category: 'Entertainment : Japanese Anime %26 Manga',
+    category: 'Entertainment : Japanese Anime 26 Manga',
     type: 'multiple',
     difficulty: 'medium',
     question:

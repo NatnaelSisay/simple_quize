@@ -23,7 +23,7 @@ function App () {
   const question = Questions[currentPage]
 
   const getNextQuestion = () => {
-    if (currentPage <= totalQuestions - 1) {
+    if (currentPage < totalQuestions - 1) {
       setCurrentPage(currentPage + 1)
     }
 
