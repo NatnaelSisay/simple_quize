@@ -17,4 +17,20 @@
 
   .answer_button{
     border-radius: 7px;
+    background-color: white;
+  }
+
+  .answer_choosen{
+    background-color: black !important;
+    color: white !important;
+    font-weight: bold;
+  }
+
+  .answer_correct{
+    background-color: white;
+    color: black;
+  }
+  .answer_wrong{
+    background-color: lightgray;
+    color: lightslategray;
   }

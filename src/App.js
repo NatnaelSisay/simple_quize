@@ -18,22 +18,27 @@ function App () {
   const [disalbeButton, setDisableButton] = useState(false)
   const [gameOver, setGameOver] = useState(false)
 
+  const [choosen, setChoosen] = useState('')
+
   const question = Questions[currentPage]
 
   const getNextQuestion = () => {
-    if (currentPage < totalQuestions - 1) {
+    if (currentPage <= totalQuestions - 1) {
       setCurrentPage(currentPage + 1)
     }
 
     setDisableButton(false)
     setAnswerd(false)
     setCurrentAnswerWasCorrect(false)
+    setChoosen('')
   }
 
   const handleAnswer = (studentAnswer) => {
     if (gameOver) {
       return
     }
+
+    setChoosen(studentAnswer)
     if (question.correct_answer === studentAnswer) {
       setCorrectAnswers(correctAnswers + 1)
       setAnswerd(true)
@@ -71,6 +76,7 @@ function App () {
                 inCorrect={question.incorrect_answers}
                 handleClick={(value) => handleAnswer(value)}
                 disalbeButton={disalbeButton}
+                choosen={choosen}
               />
             </div>
 
