@@ -40,11 +40,8 @@ function App () {
   const [question, setQuestion] = useState({})
   const [shuffledAnswers, setShuffledAnswers] = useState([])
   const [unAnswerdQuestion, setUnAnswerdQuestion] = useState(Questions.length)
-  console.log(unAnswerdQuestion)
-  // const question = Questions[currentPage]
 
   const getNextQuestion = () => {
-    setUnAnswerdQuestion(unAnswerdQuestion - 1)
     if (currentPage < totalQuestions - 1) {
       setCurrentPage(currentPage + 1)
     }
@@ -59,6 +56,7 @@ function App () {
     if (gameOver) {
       return
     }
+    setUnAnswerdQuestion(unAnswerdQuestion - 1)
 
     setChoosen(studentAnswer)
     if (question.correct_answer === studentAnswer) {
@@ -82,7 +80,6 @@ function App () {
   }, [currentPage])
 
   if (!question.question) return null
-  // console.log("The Question => ", question)
 
   return (
     <div className='App'>

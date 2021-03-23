@@ -2,21 +2,12 @@ import React from 'react'
 import './index.css'
 
 function Progress ({ currentPage = 0, correctAnswers = 0, totalQuestions = 0, unAnswerdQuestion }) {
-  /** Reason for reducing test questions is b/c the currnetPage is always 1 lower
-   * and we can't fully get the bars to overlap
-   */
-  // totalQuestions = totalQuestions - 1
-  const currentScore = currentPage && Math.round((correctAnswers / currentPage) * 100)
-  let maxScore = Math.round(
-    ((correctAnswers + unAnswerdQuestion) / totalQuestions) *
-            100
-  )
-
-  // Maximum score should never exceed 100%
-  maxScore = maxScore > 100 ? 100 : maxScore
-  const minScore = Math.round((correctAnswers / totalQuestions) * 100)
-
   // progress bar length
+  currentPage += 1 // page number should start from 1 -> totalQuestions
+  const minScore = (correctAnswers / totalQuestions) * 100
+  const currentScore = Math.round((correctAnswers / currentPage) * 100)
+  const maxScore = ((correctAnswers + unAnswerdQuestion) / totalQuestions) * 100
+  // Bar Length
   const maxScoreBar = maxScore - currentScore
   const currentScoreBar = currentScore - minScore
 
