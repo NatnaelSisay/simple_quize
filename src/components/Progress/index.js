@@ -6,7 +6,7 @@ function Progress ({ currentPage = 0, correctAnswers = 0, totalQuestions = 0, un
   currentPage += 1 // page number should start from 1 -> totalQuestions
   const minScore = (correctAnswers / totalQuestions) * 100
   const currentScore = Math.round((correctAnswers / currentPage) * 100)
-  const maxScore = ((correctAnswers + unAnswerdQuestion) / totalQuestions) * 100
+  const maxScore = Math.round(((correctAnswers + unAnswerdQuestion) / totalQuestions) * 100)
   // Bar Length
   const maxScoreBar = maxScore - currentScore
   const currentScoreBar = currentScore - minScore
