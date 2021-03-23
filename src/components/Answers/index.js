@@ -1,24 +1,7 @@
 import React from 'react'
 import './index.css'
 
-/*
-Shuffling Algorizem
-Fisher-Yates Algorithm
-https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb
-*/
-// const randomizeAnswers = (answers) => {
-//   const randomAnswers = [...answers]
-//   for (let i = randomAnswers.length - 1; i > 0; i--) {
-//     const j = Math.floor(Math.random() * i)
-//     const tempo = randomAnswers[i]
-//     randomAnswers[i] = randomAnswers[j]
-//     randomAnswers[j] = tempo
-//   }
-
-//   return randomAnswers
-// }
-
-function Answers ({ correct, shuffledAnswers, handleClick, disalbeButton, choosen }) {
+function Answers ({ correct, shuffledAnswers, handleClick, disalbeButton, choosen, gameOver }) {
   // const allAnswers = randomizeAnswers([correct, ...inCorrect])
   const allAnswers = shuffledAnswers
 
@@ -38,9 +21,10 @@ function Answers ({ correct, shuffledAnswers, handleClick, disalbeButton, choose
            * since the question is already answerd */
             className={`answer_button ${(disalbeButton && answer !== correct) && 'answer_wrong'} 
                                       ${(disalbeButton && answer === correct) && 'answer_correct'} 
-                                      ${(disalbeButton && answer === choosen) && 'answer_choosen'}`}
+                                      ${(disalbeButton && answer === choosen) && 'answer_choosen'}
+                                      ${(gameOver && 'answer_wrong')}`}
             onClick={() => disalbeButton || choiceClick(answer)}
-            // disabled={disalbeButton && answer !== correct}
+            // disabled={gameOver}
           >
             {answer}
           </button>

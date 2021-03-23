@@ -54,20 +54,21 @@ function App () {
 
   const handleAnswer = (studentAnswer) => {
     if (gameOver) {
+      setDisableButton(true)
       return
     }
-    setUnAnswerdQuestion(unAnswerdQuestion - 1)
 
-    setChoosen(studentAnswer)
     if (question.correct_answer === studentAnswer) {
       setCorrectAnswers(correctAnswers + 1)
-      setAnswerd(true)
       setCurrentAnswerWasCorrect(true)
-
-      if (currentPage === totalQuestions - 1) {
-        setGameOver(true)
-      }
     }
+
+    if (currentPage === totalQuestions - 1) {
+      setGameOver(true)
+    }
+
+    setUnAnswerdQuestion(unAnswerdQuestion - 1)
+    setChoosen(studentAnswer)
 
     setAnswerd(true)
     setDisableButton(true)
@@ -105,6 +106,7 @@ function App () {
                 handleClick={(value) => handleAnswer(value)}
                 disalbeButton={disalbeButton}
                 choosen={choosen}
+                gameOver={gameOver}
               />
             </div>
 
