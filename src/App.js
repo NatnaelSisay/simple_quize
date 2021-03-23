@@ -1,12 +1,29 @@
 import './App.css'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Rating from './components/Rating'
 import Answers from './components/Answers'
 import Progress from './components/Progress'
 import QuestionProgress from './components/QuestionProgress'
 
 import Questions from './questions'
+
+/*
+Shuffling Algorizem
+Fisher-Yates Algorithm
+https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb
+*/
+const randomizeAnswers = (answers) => {
+  const randomAnswers = [...answers]
+  for (let i = randomAnswers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * i)
+    const tempo = randomAnswers[i]
+    randomAnswers[i] = randomAnswers[j]
+    randomAnswers[j] = tempo
+  }
+
+  return randomAnswers
+}
 
 function App () {
   const [currentPage, setCurrentPage] = useState(0)
@@ -20,9 +37,14 @@ function App () {
 
   const [choosen, setChoosen] = useState('')
 
-  const question = Questions[currentPage]
+  const [question, setQuestion] = useState({})
+  const [shuffledAnswers, setShuffledAnswers] = useState([])
+  const [unAnswerdQuestion, setUnAnswerdQuestion] = useState(Questions.length)
+  console.log(unAnswerdQuestion)
+  // const question = Questions[currentPage]
 
   const getNextQuestion = () => {
+    setUnAnswerdQuestion(unAnswerdQuestion - 1)
     if (currentPage < totalQuestions - 1) {
       setCurrentPage(currentPage + 1)
     }
@@ -53,6 +75,15 @@ function App () {
     setDisableButton(true)
   }
 
+  useEffect(() => {
+    const currentQuestion = Questions[currentPage]
+    setQuestion(currentQuestion)
+    setShuffledAnswers(randomizeAnswers([currentQuestion.correct_answer, ...currentQuestion.incorrect_answers]))
+  }, [currentPage])
+
+  if (!question.question) return null
+  // console.log("The Question => ", question)
+
   return (
     <div className='App'>
       <div className='container'>
@@ -73,7 +104,7 @@ function App () {
             <div className=''>
               <Answers
                 correct={question.correct_answer}
-                inCorrect={question.incorrect_answers}
+                shuffledAnswers={shuffledAnswers}
                 handleClick={(value) => handleAnswer(value)}
                 disalbeButton={disalbeButton}
                 choosen={choosen}
@@ -92,6 +123,7 @@ function App () {
             currentPage={currentPage}
             correctAnswers={correctAnswers}
             totalQuestions={totalQuestions}
+            unAnswerdQuestion={unAnswerdQuestion}
           />
         </div>
       </div>

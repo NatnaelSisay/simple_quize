@@ -6,27 +6,28 @@ Shuffling Algorizem
 Fisher-Yates Algorithm
 https://medium.com/@nitinpatel_20236/how-to-shuffle-correctly-shuffle-an-array-in-javascript-15ea3f84bfb
 */
-const randomizeAnswers = (answers) => {
-  const randomAnswers = [...answers]
-  for (let i = randomAnswers.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * i)
-    const tempo = randomAnswers[i]
-    randomAnswers[i] = randomAnswers[j]
-    randomAnswers[j] = tempo
-  }
+// const randomizeAnswers = (answers) => {
+//   const randomAnswers = [...answers]
+//   for (let i = randomAnswers.length - 1; i > 0; i--) {
+//     const j = Math.floor(Math.random() * i)
+//     const tempo = randomAnswers[i]
+//     randomAnswers[i] = randomAnswers[j]
+//     randomAnswers[j] = tempo
+//   }
 
-  return randomAnswers
-}
+//   return randomAnswers
+// }
 
-function Answers ({ correct, inCorrect, handleClick, disalbeButton, choosen }) {
-  const allAnswers = randomizeAnswers([correct, ...inCorrect])
+function Answers ({ correct, shuffledAnswers, handleClick, disalbeButton, choosen }) {
+  // const allAnswers = randomizeAnswers([correct, ...inCorrect])
+  const allAnswers = shuffledAnswers
 
   const choiceClick = (choosenAnswer) => {
     // setDisabled(true)
     handleClick(choosenAnswer)
   }
 
-  console.log('Choosen after click => ', choosen)
+  // console.log('Choosen after click => ', choosen)
 
   return (
     <div className='question_choices'>
